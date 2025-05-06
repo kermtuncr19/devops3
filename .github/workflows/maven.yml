@@ -20,8 +20,8 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-     contents:read
-     packages:write
+     contents: read
+     packages: write
 
     steps:
     - name: clone repo
@@ -51,7 +51,7 @@ jobs:
 
     - name: copy jar file to ec2
       run: |
-          scp -i key.pem -o StrictHostKeyChecking=no target/awsproject-0.0.1-SNAPSHOT.jar ${{ secret.AWS_USER}}@${{ secrests.AWS_HOST}}:/home/${{ secrets.AWS_USER}}/
+          scp -i key.pem -o StrictHostKeyChecking=no target/awsproject-0.0.1-SNAPSHOT.jar ${{ secrets.AWS_USER}}@${{ secrests.AWS_HOST}}:/home/${{ secrets.AWS_USER}}/
 
       env:
         GITHUB_TOKEN: ${{github.token}}
